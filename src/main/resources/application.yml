@@ -1,0 +1,6 @@
+datasource:
+  url: jdbc:mysql://localhost:3306/ky_common_wechat
+  userName: root
+  password: root
+  driver: com.mysql.jdbc.Driver
+
