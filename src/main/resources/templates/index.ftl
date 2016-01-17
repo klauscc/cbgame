@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->  
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
-<head>
-    <title>hello world</title>
-
-    <!-- Meta -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head> 
-
-<body>
-<h1>hello ${name}!</h1>
-</body>
-</html> 
-=======
 <#include "common/header.ftl">
 <!--=== Slider ===-->
 <div class="slider-inner">
@@ -506,5 +483,9 @@
 <![endif]-->
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
+<<<<<<< HEAD
 </html>
 >>>>>>> dev
+=======
+</html>
+>>>>>>> f4e58ebb3c3c06758dc9d1fc0b35f432af392c44
