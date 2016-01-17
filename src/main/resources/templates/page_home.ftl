@@ -15,7 +15,7 @@
     <!-- CSS Global Compulsory-->
     <link rel="stylesheet" href="home/assets/plugins/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="home/assets/css/style.css" />
-    <link rel="stylesheet" href="home/assets/css/headers/header2.css" />
+    <link rel="stylesheet" href="githome/assets/css/headers/header2.css" />
     <link rel="stylesheet" href="home/assets/plugins/bootstrap/css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" href="home/assets/css/style_responsive.css" />
     <link rel="shortcut icon" href="favicon.ico" />        

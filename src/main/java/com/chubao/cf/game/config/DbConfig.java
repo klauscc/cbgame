@@ -22,6 +22,10 @@ public class DbConfig {
     @Autowired
     private DbProperty dbProperty;
 
+    /**
+     * 数据源配置
+     * @return 数据源
+     */
     @Bean
     public DataSource dataSource(){
         DruidDataSource dataSource=new DruidDataSource();
