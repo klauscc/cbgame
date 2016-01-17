@@ -1,6 +1,7 @@
 package com.chubao.cf.game.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -13,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     @RequestMapping(value = "/")
-    public String home(){
-        return "page_home";
+    public String home(Model model){
+        model.addAttribute("name","world");
+        return "index";
     }
 
 }
