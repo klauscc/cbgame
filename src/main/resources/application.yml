@@ -1,5 +1,5 @@
 datasource:
-  url: jdbc:mysql://localhost:3306/ky_common_wechat
+  url: jdbc:mysql://localhost:3306/chubaogame
   userName: root
   password: root
   driver: com.mysql.jdbc.Driver
