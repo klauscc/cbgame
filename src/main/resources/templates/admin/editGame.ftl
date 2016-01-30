@@ -97,12 +97,7 @@
 <script charset="utf-8" src="${base}/common/plugins/kindEditor/lang/zh_CN.js"></script>
 <script>
     KindEditor.ready(function(K) {
-        window.editor = K.create('#gameContent',{
-            cssPath : base+'/common/plugins/kindEditor/plugins/code/prettify.css',
-            uploadJson : base+'/kindEditor/upload',
-            fileManagerJson : base+'/kindEditor/fileManager',
-            allowFileManager : true
-        });
+        window.editor = K.create('textarea[name="content"]',kindEditorOption);
     });
 </script>
 

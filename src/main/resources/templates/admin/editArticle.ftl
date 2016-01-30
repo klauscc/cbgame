@@ -23,4 +23,12 @@
     </form>
 </@adminTemplate>
 <#include "include/footer.ftl">
+<!--kindEditor -->
+<script charset="utf-8" src="${base}/common/plugins/kindEditor/kindeditor.js"></script>
+<script charset="utf-8" src="${base}/common/plugins/kindEditor/lang/zh_CN.js"></script>
+<script>
+    KindEditor.ready(function(K) {
+        window.editor = K.create('textarea[name="content"]',kindEditorOption);
+    });
+</script>
 <@endHtml/>

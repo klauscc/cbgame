@@ -92,6 +92,14 @@
 <script src="//cdn.bootcss.com/formvalidation/0.6.1/js/formValidation.min.js"></script>
 <script src="//cdn.bootcss.com/formvalidation/0.6.1/js/framework/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/formvalidation/0.6.1/js/language/zh_CN.min.js"></script>
+<!--kindEditor -->
+<script charset="utf-8" src="${base}/common/plugins/kindEditor/kindeditor.js"></script>
+<script charset="utf-8" src="${base}/common/plugins/kindEditor/lang/zh_CN.js"></script>
+<script>
+    KindEditor.ready(function(K) {
+        window.editor = K.create('textarea[name="content"]',kindEditorOption);
+    });
+</script>
 <script type="text/javascript">
 $(function () {
     $("#publishTime").datetimepicker({

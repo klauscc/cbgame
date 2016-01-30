@@ -44,4 +44,11 @@
 </#macro>
 <script language="JavaScript">
     base = "${base}";
+    kindEditorOption = {
+        cssPath : base+'/common/plugins/kindEditor/plugins/code/prettify.css',
+        uploadJson : base+'/kindEditor/upload',
+        fileManagerJson : base+'/kindEditor/fileManager',
+        allowFileManager : true,
+        height: '500px'
+    };
 </script>

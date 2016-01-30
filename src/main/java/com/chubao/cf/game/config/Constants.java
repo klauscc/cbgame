@@ -160,4 +160,16 @@ public class Constants {
     public static String getImagesUploadSecondDir() {
         return imagesUploadSecondDir;
     }
+
+    public static void setImagesUploadSecondDir(String imagesUploadSecondDir) {
+        Constants.imagesUploadSecondDir = imagesUploadSecondDir;
+    }
+
+    public static String getFileUploadSecondDir() {
+        return fileUploadSecondDir;
+    }
+
+    public static void setFileUploadSecondDir(String fileUploadSecondDir) {
+        Constants.fileUploadSecondDir = fileUploadSecondDir;
+    }
 }

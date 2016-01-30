@@ -80,7 +80,7 @@ $(function () {
                     data: $form.serialize(),
                     success: function (result) {
                         var data = eval("("+result+")");
-                        console.log(data);
+//                        console.log(data);
                         if(data.error != 0){
                             $('#loginMsg').addClass('alert alert-danger').css('display','block').text(data.msg);
                             changeImg();
