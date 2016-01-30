@@ -86,11 +86,11 @@
         <#list games as game>
             <li>
                 <a href="${base}/game/${game.gameId?c}">
-                    <em class="overflow-hidden"><img src="${base+game.post}" alt="${game.name}" /></em>
+                    <em class="overflow-hidden"><img src="${base+game.post}" alt="${game.name}" class="img-responsive"/></em>
                     <span>
-                        <strong>${game.name}</strong>
+                        <strong>${game.name?html}</strong>
                         <i>
-                        ${game.content?substring(0,20)}...
+                        ${game.content?substring(0,20)?html}...
                         </i>
                     </span>
                 </a>

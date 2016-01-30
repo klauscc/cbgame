@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="${base}/common/plugins/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="${base}/home/assets/css/style.css" />
     <link rel="stylesheet" href="${base}/home/assets/css/headers/header2.css" />
-    <#--<link rel="stylesheet" href="${base}/home/assets/plugins/bootstrap/css/bootstrap-responsive.min.css" />-->
+    <link rel="stylesheet" href="${base}/home/assets/plugins/bootstrap/css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" href="${base}/home/assets/css/style_responsive.css" />
     <link rel="shortcut icon" href="favicon.ico" />
     <!-- CSS Implementing Plugins -->
