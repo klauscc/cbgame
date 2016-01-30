@@ -48,4 +48,11 @@
         WHERE
         ${type} = #{value}
     </select>
+    <update id="changePassword">
+        UPDATE cb_user
+        SET
+        password=#{1}
+        WHERE
+        userId=#{0}
+    </update>
 </mapper>

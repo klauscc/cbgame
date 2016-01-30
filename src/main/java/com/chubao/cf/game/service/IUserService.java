@@ -70,4 +70,13 @@ public interface IUserService {
      * @return 有效与否
      */
     Boolean checkUser(User user);
+
+    /**
+     * 修改密码
+     * @param userId 用户id
+     * @param oldPass 旧密码
+     * @param newPass 新密码
+     * @return 是否修改成功
+     */
+    Boolean changePassword(Integer userId, String oldPass,String newPass);
 }

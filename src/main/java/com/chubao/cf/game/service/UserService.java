@@ -109,6 +109,19 @@ public class UserService implements IUserService{
         return true;
     }
 
+    @Override
+    public Boolean changePassword(Integer userId, String oldPass, String newPass) {
+        User user = userDao.getUser(userId);
+        if(null == user){
+            return false;
+        }
+        if(null == login(user.getUserName(),oldPass)){
+            return false;
+        }
+        userDao.changePassword(userId,passwordDigest(newPass));
+        return true;
+    }
+
     public String passwordDigest(String password){
         return DigestUtils.md5DigestAsHex((password + salt).getBytes());
     }

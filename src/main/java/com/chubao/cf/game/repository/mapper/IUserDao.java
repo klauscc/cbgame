@@ -52,6 +52,18 @@ public interface IUserDao {
      */
     User login(String userName, String password);
 
+    /**
+     * 检查是否被注册
+     * @param type 类型: email ，tel , idCard
+     * @param value 值
+     * @return 返回被注册的用户，否则返回null
+     */
     User checkIfRegisterd(@Param("type")String type, @Param("value")String value);
 
+    /**
+     * 修改密码
+     * @param userId 用户id
+     * @param newPassword 新密码
+     */
+    void changePassword(Integer userId,String newPassword);
 }

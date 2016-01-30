@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * 创建者: 程峰
@@ -30,5 +31,22 @@ public class AdminUserController {
 
         model.addAttribute("users",userService.getAllUsers());
         return "/admin/manageUser";
+    }
+
+    @RequestMapping(value = "/changeAdminPassword",method = RequestMethod.GET)
+    public String changeCodeView(Model model){
+        return "/admin/changeAdminPassword";
+    }
+
+    @RequestMapping(value = "/changeAdminPassword",method = RequestMethod.POST)
+    public String changeAdminPass(String oldPassword,String newPassword,Model model,RedirectAttributes redirectAttributes){
+        if(userService.changePassword(1,oldPassword,newPassword)){
+            redirectAttributes.addFlashAttribute("flag","true");
+            redirectAttributes.addFlashAttribute("msg","修改成功");
+        } else {
+            redirectAttributes.addFlashAttribute("flag","false");
+            redirectAttributes.addFlashAttribute("msg","原密码错误");
+        }
+        return "redirect:/admin/user/changeAdminPassword";
     }
 }

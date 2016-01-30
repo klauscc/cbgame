@@ -103,7 +103,14 @@
                                 <a href="${base}/admin/user/manage">管理用户</a>
                             </li>
                         </ul>
-                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-plus-circle"></i> 其它<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="${base}/admin/user/changeAdminPassword">修改密码</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
