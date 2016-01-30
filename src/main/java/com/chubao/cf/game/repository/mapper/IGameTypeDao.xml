@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chubao.cf.game.repository.mapper.IGameTypeDao">
+    <select id="getGameTypes" resultType="com.chubao.cf.game.domain.GameType">
+        SELECT * FROM cb_game_type WHERE isDelete=0
+    </select>
+    <select id="getGameTypeById" resultType="com.chubao.cf.game.domain.GameType">
+        SELECT * FROM cb_game_type WHERE isDelete=0 AND typeId=#{typeId}
+    </select>
+    <insert id="addGameType" parameterType="com.chubao.cf.game.domain.GameType" useGeneratedKeys="true" keyProperty="typeId">
+        INSERT INTO cb_game_type
+        (name,timeAdded)
+        VALUES
+        (#{name},#{timeAdded})
+    </insert>
+    <update id="editGameType" parameterType="com.chubao.cf.game.domain.GameType">
+        UPDATE cb_game_type
+        SET
+        name=#{name},
+        WHERE typeId=#{typeId}
+    </update>
+    <update id="deleteGameType" >
+        UPDATE cb_game_type
+        SET
+        isDelete=1
+        WHERE typeId=#{typeId}
+    </update>
+
+</mapper>

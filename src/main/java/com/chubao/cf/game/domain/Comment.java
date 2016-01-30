@@ -35,15 +35,15 @@ public class Comment {
     /**
      * 昵称
      */
-    private String nickName;
+    private String nickName="";
     /**
      * 评论内容
      */
-    private String content;
+    private String content="";
     /**
      * 评分
      */
-    private Double rate;
+    private Double rate = 5D;
     /**
      * 添加日期
      */
@@ -52,7 +52,7 @@ public class Comment {
     /**
      * 是否删除
      */
-    private Boolean delete;
+    private Boolean isDelete;
 
     public Integer getCommentId() {
         return commentId;
@@ -126,11 +126,11 @@ public class Comment {
         this.timeAdded = timeAdded;
     }
 
-    public Boolean getDelete() {
-        return delete;
+    public Boolean getIsDelete() {
+        return isDelete;
     }
 
-    public void setDelete(Boolean delete) {
-        this.delete = delete;
+    public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
     }
 }

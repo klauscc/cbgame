@@ -40,21 +40,25 @@ public class User {
      */
     private String tel;
     /**
+     * 权限
+     */
+    private String authority="USER";
+    /**
      * 是否有效
      */
-    private Boolean enabled;
+    private Boolean enabled = true;
     /**
      * 是否锁定
      */
-    private Boolean locked;
+    private Boolean locked =false;
     /**
      * 是否过期
      */
-    private Boolean expired;
+    private Boolean expired =false;
     /**
      * 密码是否过期
      */
-    private Boolean credentialsExpired;
+    private Boolean credentialsExpired = false;
     /**
      * 添加日期
      */
@@ -115,6 +119,14 @@ public class User {
 
     public void setTel(String tel) {
         this.tel = tel;
+    }
+
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 
     public Boolean getEnabled() {

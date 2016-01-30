@@ -1,7 +1,25 @@
 var Index = function () {
 
     return {
-        
+
+		//set navigation active li
+		setNavActive: function(){
+			var url = window.location.href;
+			$(function(){
+				if(/familySafety/.test(url)){
+					$("#familySafety").addClass("active");
+				}else if(/game/.test(url)){
+					$("#game").addClass("active");
+				}else if(/about/.test(url)){
+					$("#about").addClass("active");
+				}else if(/contactUs/.test(url)){
+					$("#contactUs").addClass("active");
+				}else{
+					$("#home").addClass("active");
+				}
+			});
+		},
+
         //Parallax Slider
         initParallaxSlider: function () {
 			$(function() {

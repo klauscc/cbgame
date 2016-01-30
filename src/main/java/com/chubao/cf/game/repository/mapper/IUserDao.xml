@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chubao.cf.game.repository.mapper.IUserDao">
+    <select id="getAllUsers" resultType="com.chubao.cf.game.domain.User">
+        SELECT * FROM cb_user
+    </select>
+
+    <select id="getUser" resultType="com.chubao.cf.game.domain.User">
+        SELECT * FROM cb_user WHERE userId=#{userId}
+    </select>
+    <insert id="addUser" parameterType="com.chubao.cf.game.domain.User" useGeneratedKeys="true" keyProperty="userId">
+        INSERT INTO cb_user
+        (userName,password,realName,idCard,email,tel,authority,enabled,locked,expired,credentialsExpired,timeAdded)
+        VALUES (
+        #{userName},#{password},#{realName},#{idCard},#{email},#{tel},#{authority},#{enabled},#{locked},#{expired},#{credentialsExpired},#{timeAdded}
+        )
+    </insert>
+    <update id="disableUser">
+        UPDATE cb_user
+        SET
+        enabled=0
+        WHERE userId=#{userId}
+    </update>
+    <update id="editUser" parameterType="com.chubao.cf.game.domain.User">
+        UPDATE cb_user
+        SET
+        userName = #{userName},
+        password = #{password},
+        realName = #{realName},
+        idCard = #{idCard},
+        email = #{email},
+        tel = #{tel},
+        authority = #{authority},
+        enabled = #{enabled},
+        locked = #{locked},
+        expired = #{expired},
+        credentialsExpired = #{credentialsExpired}
+        WHERE
+        userId = #{userId}
+    </update>
+    <select id="login" resultType="com.chubao.cf.game.domain.User">
+        SELECT * FROM cb_user
+        WHERE
+        userName = #{0} AND password = #{1}
+    </select>
+    <select id="checkIfRegisterd" resultType="com.chubao.cf.game.domain.User">
+        SELECT * FROM cb_user
+        WHERE
+        ${type} = #{value}
+    </select>
+</mapper>

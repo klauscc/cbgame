@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chubao.cf.game.repository.mapper.IGameDao">
+    <select id="getGamesByTypeAndPage" resultType="com.chubao.cf.game.domain.Game">
+        SELECT * FROM cb_game WHERE typeId = #{0} AND isDelete = 0 ORDER BY top DESC ,timeEdit DESC limit #{1},#{2}
+    </select>
+
+    <select id="getGamesByPage" resultType="com.chubao.cf.game.domain.Game">
+        SELECT * FROM cb_game WHERE isDelete = 0 ORDER BY top DESC,timeEdit DESC limit #{0},#{1}
+    </select>
+    <select id="getGames" resultType="com.chubao.cf.game.domain.Game">
+        SELECT * FROM cb_game WHERE isDelete = 0 ORDER BY top DESC,timeEdit DESC
+    </select>
+    <select id="getGameById" resultType="com.chubao.cf.game.domain.Game">
+        SELECT * FROM cb_game WHERE gameId = #{gameId} AND isDelete = 0
+    </select>
+    <update id="editGame" parameterType="com.chubao.cf.game.domain.Game">
+        UPDATE  cb_game
+        SET
+        typeId=#{typeId},
+        developerId=#{developerId},
+        userId=#{userId},
+        name=#{name},
+        content=#{content},
+        price=#{price},
+        publishTime=#{publishTime},
+        size=#{size},
+        platform=#{platform},
+        downloadTimes=#{downloadTimes},
+        rateTimes=#{rateTimes},
+        downloadUrl=#{downloadUrl},
+        images=#{images},
+        post=#{post},
+        top=#{top}
+        WHERE
+        gameId=#{gameId}
+    </update>
+    <insert id="addGame" parameterType="com.chubao.cf.game.domain.Game" useGeneratedKeys="true" keyProperty="gameId">
+        INSERT INTO cb_game
+        (typeId,developerId,userId,name,content,price,publishTime,size,platform,downloadTimes,rateTimes,downloadUrl,images,post,top,
+        timeAdded)
+        VALUES
+        (#{typeId},#{developerId},#{userId},#{name},#{content},#{price},#{publishTime},#{size},#{platform},
+        #{downloadTimes},#{rateTimes},#{downloadUrl},#{images},#{post},#{top},
+        #{timeAdded})
+    </insert>
+    <update id="deleteGame" >
+        UPDATE cb_game
+        SET
+        isDelete=1
+        WHERE
+        gameId=#{gameId}
+    </update>
+</mapper>

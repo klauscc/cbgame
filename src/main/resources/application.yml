@@ -1,6 +1,22 @@
+
+
+spring:
+  freemarker:
+    requestContextAttribute: request
+
+multipart:
+  maxFileSize: 10MB
+  maxRequestSize: 10MB
+
+server:
+  contextPath: /chubao
+
 datasource:
   url: jdbc:mysql://localhost:3306/chubaogame
   userName: root
   password: root
   driver: com.mysql.jdbc.Driver
 
+constant:
+  perPage: 8
+  uploadDir: /upload

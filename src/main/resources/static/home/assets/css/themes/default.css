@@ -16,6 +16,13 @@ a.read-more:hover {
 	color:#72c02c;
 }
 
+.align-height {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display:         flex;
+}
+
 /*Slider
 ------------------------------------*/
 .da-slide h2 i {

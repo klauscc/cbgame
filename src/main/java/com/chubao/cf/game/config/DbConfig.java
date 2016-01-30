@@ -2,6 +2,8 @@ package com.chubao.cf.game.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.chubao.cf.game.domain.DbProperty;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -34,5 +36,17 @@ public class DbConfig {
         dataSource.setPassword(dbProperty.getPassword());
         dataSource.setDriverClassName(dbProperty.getDriver());
         return dataSource;
+    }
+
+    /**
+     * 使用工厂方法创建SqlSessionFactory，注意如果直接返回SqlSessionFactoryBean会导致Spring容器初始化错误
+     * @return 返回SqlSessionFactory实例
+     * @throws Exception {@link SqlSessionFactoryBean#getObject()}导致的异常
+     */
+    @Bean
+    public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        sqlSessionFactoryBean.setDataSource(dataSource());
+        return sqlSessionFactoryBean.getObject();
     }
 }

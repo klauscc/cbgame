@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chubao.cf.game.repository.mapper.ICommentDao">
+    <select id="getCommentById" resultType="com.chubao.cf.game.domain.Comment">
+        SELECT * FROM cb_comment WHERE commentId = ${commentId} AND isDelete = 0
+    </select>
+
+    <select id="getCommentByGameId" resultType="com.chubao.cf.game.domain.Comment">
+        SELECT * FROM cb_comment WHERE gameId = #{gameId} AND isDelete = 0 ORDER BY timeAdded DESC
+    </select>
+
+    <insert id="addComment" parameterType="com.chubao.cf.game.domain.Comment" useGeneratedKeys="true" keyProperty="commentId">
+        INSERT INTO cb_comment
+        (parentId,gameId,articleId,userId,nickName,content,rate,timeAdded)
+        VALUES
+        (#{parentId},#{gameId},#{articleId},#{userId},#{nickName},#{content},#{rate},#{timeAdded})
+    </insert>
+
+    <update id="deleteComment">
+        UPDATE cb_comment
+        SET
+        isDelete=1
+        WHERE
+        commentId=#{commentId}
+    </update>
+
+    <select id="gameAverageRate" resultType="double">
+        SELECT AVG(rate) FROM cb_comment WHERE gameId=#{gameId} AND isDelete=0
+    </select>
+    <select id="commentCounts" resultType="int">
+        SELECT COUNT(*) FROM cb_comment WHERE gameId=#{gameId} AND isDelete=0
+    </select>
+</mapper>

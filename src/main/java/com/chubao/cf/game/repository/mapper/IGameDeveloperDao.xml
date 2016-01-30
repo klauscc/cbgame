@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chubao.cf.game.repository.mapper.IGameDeveloperDao">
+    <select id="getGameDeveloper" resultType="com.chubao.cf.game.domain.GameDeveloper">
+        SELECT * FROM cb_game_developer WHERE isDelete=0
+    </select>
+    <select id="getGameDeveloperById" resultType="com.chubao.cf.game.domain.GameDeveloper">
+        SELECT * FROM cb_game_developer WHERE isDelete=0 AND developerId=#{developerId}
+    </select>
+    <insert id="addGameDeveloper" parameterType="com.chubao.cf.game.domain.GameDeveloper" useGeneratedKeys="true" keyProperty="developerId">
+        INSERT INTO cb_game_developer
+        (name,timeAdded)
+        VALUES
+        (#{name},#{timeAdded})
+    </insert>
+    <update id="editGameDeveloper" parameterType="com.chubao.cf.game.domain.GameDeveloper">
+        UPDATE cb_game_developer
+        SET
+        name=#{name},
+        WHERE developerId=#{developerId}
+    </update>
+    <update id="deleteGameDeveloper" >
+        UPDATE cb_game_developer
+        SET
+        isDelete=1
+        WHERE developerId=#{developerId}
+    </update>
+
+</mapper>

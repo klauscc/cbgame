@@ -2,7 +2,7 @@ var App = function () {
 
     function handleIEFixes() {
         //fix html5 placeholder attribute for ie7 & ie8
-        if (jQuery.browser.msie && jQuery.browser.version.substr(0, 1) < 9) { // ie7&ie8
+        if (!$.support.leadingWhitespace) { // ie7&ie8
             jQuery('input[placeholder], textarea[placeholder]').each(function () {
                 var input = jQuery(this);
 

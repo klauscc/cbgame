@@ -1,5 +1,6 @@
 package com.chubao.cf.game.domain;
 
+import com.chubao.cf.game.service.others.HtmlSafety;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
@@ -33,6 +34,10 @@ public class Article {
      */
     private String post;
     /**
+     * 置顶
+     */
+    private Integer top;
+    /**
      * 添加日期
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" ,timezone = "GMT+8")
@@ -45,7 +50,7 @@ public class Article {
     /**
      * 是否删除
      */
-    private Boolean delete;
+    private Boolean isDelete;
 
     public Integer getArticleId() {
         return articleId;
@@ -68,7 +73,11 @@ public class Article {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        if(null == title){
+            return;
+        } else {
+            this.title = HtmlSafety.relaxed(title);
+        }
     }
 
     public String getContent() {
@@ -76,7 +85,11 @@ public class Article {
     }
 
     public void setContent(String content) {
-        this.content = content;
+        if(null == content){
+            return;
+        } else {
+            this.content = HtmlSafety.relaxed(content);
+        }
     }
 
     public String getPost() {
@@ -84,7 +97,19 @@ public class Article {
     }
 
     public void setPost(String post) {
-        this.post = post;
+        if(null == post){
+            return;
+        } else {
+            this.post = HtmlSafety.relaxed(post);
+        }
+    }
+
+    public Integer getTop() {
+        return top;
+    }
+
+    public void setTop(Integer top) {
+        this.top = top;
     }
 
     public Date getTimeAdded() {
@@ -103,11 +128,11 @@ public class Article {
         this.timeEdit = timeEdit;
     }
 
-    public Boolean getDelete() {
-        return delete;
+    public Boolean getIsDelete() {
+        return isDelete;
     }
 
-    public void setDelete(Boolean delete) {
-        this.delete = delete;
+    public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
     }
 }
