@@ -1,8 +1,8 @@
 <#include "include/header.ftl">
 <!-- DataTables CSS -->
-<link href="${base}/admin/plugins/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<link href="${base}/foradmin/plugins/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
 <!-- DataTables Responsive CSS -->
-<link href="${base}/admin/plugins/datatables-responsive/css/responsive.dataTables.scss" rel="stylesheet">
+<link href="${base}/foradmin/plugins/datatables-responsive/css/responsive.dataTables.scss" rel="stylesheet">
 
 <@adminTemplate title="管理用户">
 
@@ -44,8 +44,8 @@
 
 <#include "include/footer.ftl">
 <!-- DataTables JavaScript -->
-<script src="${base}/admin/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
-<script src="${base}/admin/plugins/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+<script src="${base}/foradmin/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="${base}/foradmin/plugins/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#manageUser').DataTable({

@@ -37,7 +37,7 @@
 <div class="header">
     <div class="container">
         <!-- Logo -->
-        <div class="logo" style="padding-bottom: 0">
+        <div class="logo" style="padding-bottom: 0;padding-top: 5px">
             <a href="${base}/"><img id="logo-header" src="${base}/home/assets/img/logo2-default.png" alt="Logo" /></a>
         </div><!-- /logo -->
 

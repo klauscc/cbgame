@@ -11,6 +11,10 @@ multipart:
 server:
   contextPath: /chubao
 
+logging:
+  path: log
+  level: WARN
+
 datasource:
   url: jdbc:mysql://localhost:3306/chubaogame
   userName: root

@@ -13,17 +13,17 @@ import org.springframework.context.annotation.Profile;
  * 任务号:
  * 创建说明: web配置
  */
-@Configuration
+//@Configuration
 public class WebConfig {
 
 
-    @Bean
-    @Autowired
-    public FilterRegistrationBean filterRegistrationBean(LoginFilter loginFilter){
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-        filterRegistrationBean.setFilter(loginFilter);
-        filterRegistrationBean.setEnabled(true);
-        filterRegistrationBean.addUrlPatterns("/admin/*");
-        return filterRegistrationBean;
-    }
+//    @Bean
+//    @Autowired
+//    public FilterRegistrationBean filterRegistrationBean(LoginFilter loginFilter){
+//        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+//        filterRegistrationBean.setFilter(loginFilter);
+//        filterRegistrationBean.setEnabled(true);
+//        filterRegistrationBean.addUrlPatterns("/admin/**");
+//        return filterRegistrationBean;
+//    }
 }

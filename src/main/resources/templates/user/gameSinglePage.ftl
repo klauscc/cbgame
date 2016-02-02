@@ -27,7 +27,6 @@
                         <ul class="list-unstyled" style="font-size: 18px">
                             <li>发布时间:  ${game.publishTime?string("yyyy-MM-dd HH:mm:ss")}</li>
                             <li>游戏类型:  ${gameType.name}</li>
-                            <li>开发者:  ${gameDeveloper.name}</li>
                             <li>资费:  ${game.price}</li>
                             <li>游戏平台:  ${game.platform}</li>
                             <li>评分: ${rate?string("0.#")}分 / ${comments?size}人评价</li>

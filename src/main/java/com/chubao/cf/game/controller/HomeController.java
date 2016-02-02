@@ -166,10 +166,10 @@ public class HomeController {
 
 
 
-    @RequestMapping(value = "/test")
-    @ResponseBody
-    public String test(){
-        return userService.passwordDigest("cbadmin");
-    }
+//    @RequestMapping(value = "/test")
+//    @ResponseBody
+//    public String test(){
+//        return userService.passwordDigest("cbadmin");
+//    }
 
 }

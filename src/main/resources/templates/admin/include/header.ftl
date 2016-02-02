@@ -12,19 +12,19 @@
     <title>${title?default("触乐游戏|管理平台")}</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="${base}/admin/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${base}/foradmin/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="${base}/admin/plugins/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="${base}/foradmin/plugins/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
     <!-- Timeline CSS -->
-    <link href="${base}/admin/dist/css/timeline.css" rel="stylesheet">
+    <link href="${base}/foradmin/dist/css/timeline.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="${base}/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="${base}/foradmin/dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="${base}/admin/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${base}/foradmin/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

@@ -2,7 +2,7 @@
 <!-- datetime picker CSS-->
 <link href="${base}/common/plugins/dateTimePicker/jquery.datetimepicker.css" rel="stylesheet">
 <!-- bootsrap-fileinput CSS-->
-<link href="${base}/admin/plugins/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet">
+<link href="${base}/foradmin/plugins/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet">
 <!-- formvalidation CSS-->
 <link href="//cdn.bootcss.com/formvalidation/0.6.1/css/formValidation.min.css" rel="stylesheet">
 
@@ -86,8 +86,8 @@
 <!-- dateTimePicker-->
 <script src="${base}/common/plugins/dateTimePicker/jquery.datetimepicker.js"></script>
 <!-- bootsrap-fileinput JS-->
-<script src="${base}/admin/plugins/bootstrap-fileinput/js/fileinput.js"></script>
-<script src="${base}/admin/plugins/bootstrap-fileinput/js/fileinput_locale_zh.js"></script>
+<script src="${base}/foradmin/plugins/bootstrap-fileinput/js/fileinput.js"></script>
+<script src="${base}/foradmin/plugins/bootstrap-fileinput/js/fileinput_locale_zh.js"></script>
 <!--formvalidation JS-->
 <script src="//cdn.bootcss.com/formvalidation/0.6.1/js/formValidation.min.js"></script>
 <script src="//cdn.bootcss.com/formvalidation/0.6.1/js/framework/bootstrap.min.js"></script>

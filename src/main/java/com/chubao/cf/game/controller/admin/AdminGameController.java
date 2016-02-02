@@ -8,6 +8,8 @@ import com.chubao.cf.game.service.GameService;
 import com.chubao.cf.game.service.IGameDeveloperService;
 import com.chubao.cf.game.service.IGameTypeService;
 import com.chubao.cf.game.service.others.UploadService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +40,7 @@ public class AdminGameController {
     @Autowired
     private UploadService uploadService;
 
+    private static final Logger logger = LoggerFactory.getLogger(AdminGameController.class);
     /**
      * 添加游戏界面
      * @param model 传入模板参数
@@ -91,6 +94,10 @@ public class AdminGameController {
     @RequestMapping(value = "/edit/{gameId}",method = RequestMethod.GET)
     public String editGameView(@PathVariable Integer gameId,Model model){
         Game game = gameService.getGameById(gameId);
+        if(null == game){
+            logger.warn("游戏id:{}不存在，企图编辑",gameId);
+            return "/";
+        }
         //游戏类型
         ArrayList<GameType> gameTypes = gameTypeService.getGameType();
         HashMap<String ,String> gameTypeMap = new HashMap<>();
@@ -174,6 +181,6 @@ public class AdminGameController {
             redirectAttributes.addFlashAttribute("deleteFlag","false");
             redirectAttributes.addFlashAttribute("msg","删除失败!无此游戏");
         }
-        return "redirect:/admin/game/manage";
+        return "/admin/game/manage";
     }
 }
