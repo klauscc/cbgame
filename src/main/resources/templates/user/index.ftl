@@ -1,31 +1,4 @@
 <#include "include/header.ftl">
-<#macro sliderContent gameId src title content data_x>
-
-<img src="${base+src}" onclick="window.location.href='${base}/game/${gameId}'" xmlns="http://www.w3.org/1999/html"/>
-
-<#--<div class="caption sft big_black" style="background-color: rgba(0,0,0,0)" data-x="${data_x}" data-y="120"-->
-     <#--data-speed="300" data-start="1200" data-easing="easeOutExpo">-->
-<#--${title?html}-->
-<#--</div>-->
-    <#--<#if (content?length > 20) >-->
-    <#--<div class="caption lfb medium_grey" data-x="${data_x}" style="background-color: rgba(0,0,0,0)" data-y="215"-->
-         <#--data-speed="300" data-start="1400" data-easing="easeOutExpo">-->
-    <#--${content?substring(0,9)?html}-->
-    <#--</div>-->
-    <#--<div class="caption lfb medium_grey" data-x="${data_x}" style="background-color: rgba(0,0,0,0)" data-y="250"-->
-         <#--data-speed="300" data-start="1600" data-easing="easeOutExpo">-->
-    <#--${content?substring(10,19)?html}...<a href="${base}/game/${gameId}">查看详情</a>-->
-    <#--</div>-->
-    <#--<#else >-->
-    <#--<div class="caption lfb medium_grey" data-x="${data_x}" style="background-color: rgba(0,0,0,0)" data-y="250"-->
-         <#--data-speed="300" data-start="1600" data-easing="easeOutExpo">-->
-        <#--<a href="${base}/game/${gameId}">查看详情</a>-->
-    <#--</div>-->
-    <#--</#if>-->
-
-</#macro>
-
-
 
 <!--=== Slider ===-->
 <div class="flexslider">
@@ -82,9 +55,14 @@
     <div class="row margin-bottom-40">
         <ul id="list" class="bxslider recent-work">
         <#list games as game>
+            <#if (game.images != "")>
+                <#assign imageSrc = game.images?split("|")[0]>
+            <#else >
+                <#assign imageSrc = game.post>
+            </#if>
             <li>
                 <a href="${base}/game/${game.gameId?c}">
-                    <em class="overflow-hidden"><img src="${base+game.post}" alt="${game.name}" class="img-responsive"/></em>
+                    <em class="overflow-hidden"><img src="${base+imageSrc}" alt="${game.name}" class="img-responsive"/></em>
                     <span>
                         <strong>${game.name?html}</strong>
                         <i>

@@ -50,7 +50,7 @@
             <div class="form-group">
                 <label>游戏海报</label>
                 <input class="form-control" id="post" accept="image/png,image/gif,image/jpeg" name="gamePost" type="file">
-                <p class="help-block">游戏海报将作为预览图</p>
+                <p class="help-block">游戏海报将作为预览图，<span style="color: red">图片尺寸500*1440</span></p>
             </div>
         </div>
         <div class="col-lg-3">
