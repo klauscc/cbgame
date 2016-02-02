@@ -45,7 +45,7 @@
 <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
-        App.initSliders();
+//        App.initSliders();
         App.initBxSlider1();
         Index.initRevolutionSlider();
         Index.setNavActive();
