@@ -8,6 +8,7 @@ import com.chubao.cf.game.service.ICommentService;
 import com.chubao.cf.game.service.IGameDeveloperService;
 import com.chubao.cf.game.service.IGameService;
 import com.chubao.cf.game.service.IGameTypeService;
+import com.chubao.cf.game.service.others.HtmlSafety;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,7 +35,8 @@ public class GameController {
     private IGameDeveloperService developerService;
     @Autowired
     private ICommentService commentService;
-
+    @Autowired
+    private HtmlSafety htmlSafety;
 
     @RequestMapping
     public String getAllGame(Model model){
@@ -43,7 +45,15 @@ public class GameController {
         ArrayList<GameDeveloper> gameDevelopers = new ArrayList<>();
         ArrayList<Double> gameRates = new ArrayList<>();
         ArrayList<Integer> commentCounts = new ArrayList<>();
+        ArrayList<String> gameDescribe = new ArrayList<>();
+
         for(Game game:games){
+            String text = htmlSafety.none(game.getContent());
+            if(text.length() < 20){
+                gameDescribe.add(text);
+            }else {
+                gameDescribe.add(text.substring(0,19));
+            }
             gameTypes.add(typeService.getGameTypeById(game.getTypeId()));
             gameDevelopers.add(developerService.getGameDeveloperById(game.getDeveloperId()));
             gameRates.add(commentService.caculateRate(game.getGameId()));
@@ -55,6 +65,7 @@ public class GameController {
         model.addAttribute("gameDevelopers",gameDevelopers);
         model.addAttribute("gameRates",gameRates);
         model.addAttribute("commentCounts",commentCounts);
+        model.addAttribute("gameDescribe",gameDescribe);
         return "/user/gameListPage";
     }
 

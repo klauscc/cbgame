@@ -5,19 +5,27 @@ var Index = function () {
 		//set navigation active li
 		setNavActive: function(){
 			var url = window.location.href;
-			$(function(){
-				if(/familySafety/.test(url)){
-					$("#familySafety").addClass("active");
-				}else if(/game/.test(url)){
-					$("#game").addClass("active");
-				}else if(/about/.test(url)){
-					$("#about").addClass("active");
-				}else if(/contactUs/.test(url)){
-					$("#contactUs").addClass("active");
-				}else{
-					$("#home").addClass("active");
-				}
-			});
+			var url = window.location;
+			var element = $('ul.nav li a').filter(function() {
+				return this.href == url;
+			}).parent().addClass('active');
+			if(/familySafety/.test(url)){
+				$("#familySafety").addClass("active");
+			}
+			//$(function(){
+			//	if(/familySafety/.test(url)){
+			//		$("#familySafety").addClass("active");
+			//	}else if(/about/.test(url)){
+			//		$("#about").addClass("active");
+			//	}else if(/contactUs/.test(url)){
+			//		$("#contactUs").addClass("active");
+			//	}else if(/game/.test(url)){
+			//		$("#game").addClass("active");
+			//	}
+			//	else{
+			//		$("#home").addClass("active");
+			//	}
+			//});
 		},
 
         //Parallax Slider
@@ -34,8 +42,8 @@ var Index = function () {
                  api =  jQuery('.fullwidthabnner').revolution(
 	                {
 	                    delay:9000,
-	                    startheight:500,
-	                    startwidth:960,
+						startwidth: 1440,
+						//startheight:500,
 
 	                    hideThumbs:10,
 
@@ -52,7 +60,7 @@ var Index = function () {
 	                    navigationHAlign:"center",              // Vertical Align top,center,bottom
 	                    navigationVAlign:"bottom",              // Horizontal Align left,center,right
 	                    navigationHOffset:0,
-	                    navigationVOffset:20,
+	                    navigationVOffset:0,
 
 	                    soloArrowLeftHalign:"left",
 	                    soloArrowLeftValign:"center",

@@ -39,9 +39,11 @@
                     <ul id="list" class="bxslider recent-work">
                        <#if (gameImages?size > 0) >
                             <#list gameImages as image>
+                            <li>
                                 <a href="${base+image}" data-lightbox="image">
-                                    <img class="img-responsive" src="${base+image}">
+                                    <em class="overflow-hidden"><img class="img-responsive" src="${base+image}"></em>
                                 </a>
+                            </li>
                             </#list>
 
                        </#if>

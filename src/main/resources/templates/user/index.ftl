@@ -1,26 +1,27 @@
 <#include "include/header.ftl">
 <#macro sliderContent gameId src title content data_x>
 
-<img src="${base+src}" xmlns="http://www.w3.org/1999/html"/>
+<img src="${base+src}" onclick="window.location.href='${base}/game/${gameId}'" xmlns="http://www.w3.org/1999/html"/>
 
-<div class="caption sft big_black" style="background-color: rgba(0,0,0,0)" data-x="${data_x}" data-y="120"
-     data-speed="300" data-start="1200" data-easing="easeOutExpo">
-${title?html}
-</div>
-    <#if (content?length > 20) >
-    <div class="caption lfb medium_grey" data-x="${data_x}" style="background-color: rgba(0,0,0,0)" data-y="215"
-         data-speed="300" data-start="1400" data-easing="easeOutExpo">
-    ${content?substring(0,9)?html}
-    </div>
-    <div class="caption lfb medium_grey" data-x="${data_x}" style="background-color: rgba(0,0,0,0)" data-y="250"
-         data-speed="300" data-start="1600" data-easing="easeOutExpo">
-    ${content?substring(10,19)?html}...<a href="${base}/game/${gameId}">查看详情</a>
-    </div>
-    <#else >
-    <div class="caption lfb medium_grey" data-x="${data_x}" style="background-color: rgba(0,0,0,0)" data-y="250"
-         data-speed="300" data-start="1600" data-easing="easeOutExpo">
-    ${content?html}...<a href="${base}/game/${gameId}">查看详情</a>
-    </#if>
+<#--<div class="caption sft big_black" style="background-color: rgba(0,0,0,0)" data-x="${data_x}" data-y="120"-->
+     <#--data-speed="300" data-start="1200" data-easing="easeOutExpo">-->
+<#--${title?html}-->
+<#--</div>-->
+    <#--<#if (content?length > 20) >-->
+    <#--<div class="caption lfb medium_grey" data-x="${data_x}" style="background-color: rgba(0,0,0,0)" data-y="215"-->
+         <#--data-speed="300" data-start="1400" data-easing="easeOutExpo">-->
+    <#--${content?substring(0,9)?html}-->
+    <#--</div>-->
+    <#--<div class="caption lfb medium_grey" data-x="${data_x}" style="background-color: rgba(0,0,0,0)" data-y="250"-->
+         <#--data-speed="300" data-start="1600" data-easing="easeOutExpo">-->
+    <#--${content?substring(10,19)?html}...<a href="${base}/game/${gameId}">查看详情</a>-->
+    <#--</div>-->
+    <#--<#else >-->
+    <#--<div class="caption lfb medium_grey" data-x="${data_x}" style="background-color: rgba(0,0,0,0)" data-y="250"-->
+         <#--data-speed="300" data-start="1600" data-easing="easeOutExpo">-->
+        <#--<a href="${base}/game/${gameId}">查看详情</a>-->
+    <#--</div>-->
+    <#--</#if>-->
 
 </#macro>
 
@@ -75,11 +76,11 @@ ${title?html}
     <!-- Service Blocks -->
     <div class="row-fluid servive-block">
         <div class="span4">
-            <h4>关于触乐</h4>
+            <h4>关于触宝</h4>
 
             <p><i class="icon-bullhorn"></i></p>
 
-            <p>上海触乐信息科技有限公司，是一家致力于手游开发、推广的新型互联网公司，工作环境优美，氛围轻松。</p>
+            <p>触宝科技被誉为“全球十大最创新公司 ”，用户遍布160多个国家和地区，触宝电话和触宝输入法两款APP用户总数过6亿。  BBC、CNN、TechCrunch和Engadget等国外知名媒体都曾对触宝科技有过报导。</p>
         </div>
         <div class="span4">
             <h4>商务合作</h4>
@@ -93,8 +94,8 @@ ${title?html}
 
             <p><i class="icon-envelope"></i></p>
 
-            <p>邮箱：taric.gao@cootek.cn</br>
-                联系电话：021-51602610</br>
+            <p>邮箱：Life-bd@cootek.cn</br>
+                联系电话：13681796079</br>
                 公司地址：上海市徐汇区虹梅路2007号7号楼2、3层</p>
         </div>
     </div>
@@ -113,7 +114,7 @@ ${title?html}
                     <span>
                         <strong>${game.name?html}</strong>
                         <i>
-                        ${game.content?substring(0,20)?html}...
+                        <#--${game.content?substring(0,20)?html}...-->
                         </i>
                     </span>
                 </a>

@@ -24,4 +24,8 @@ public class HtmlSafety {
     public static String relaxed(String html) {
         return Jsoup.clean(html,"http://localhost:8080",Whitelist.relaxed().preserveRelativeLinks(true));
     }
+
+    public static String none(String html){
+        return Jsoup.clean(html,Whitelist.none());
+    }
 }

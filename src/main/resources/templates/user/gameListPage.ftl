@@ -28,11 +28,7 @@
                                 <li><i class="icon-comments"></i> ${gameRates[game_index]?string("0.#")}分 / ${commentCounts[game_index]}人评价</li>
                             </ul>
                             <p>
-                                <#if (game.content?length < 30)>
-                                ${game.content?html}...
-                                    <#else >
-                                        ${game.content?substring(0,30)?html}...
-                                </#if>
+                                ${gameDescribe[game_index]}
                             </p>
                             </a>
                         </div>
