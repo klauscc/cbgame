@@ -28,46 +28,20 @@
 
 
 <!--=== Slider ===-->
-<div class="fullwidthbanner-container">
-    <div class="fullwidthabnner">
-        <ul>
-        <#if (games?size < 4)>
-            <#if (games?size > 0)>
-                <#list games as game>
-                    <li data-transition="3dcurtain-vertical" data-slotamount="10" data-masterspeed="300"
-                        data-thumb="${base}/home/assets/img/sliders/revolution/thumbs/thumb1.jpg">
-                        <@sliderContent gameId="${game.gameId}" src="${game.post}" title="${game.name}" content="${game.content}" data_x=150 />
-                    </li>
-                </#list>
-            </#if>
-        <#else >
-            <!-- THE FIRST SLIDE -->
-            <li data-transition="3dcurtain-vertical" data-slotamount="10" data-masterspeed="300"
-                data-thumb="${base}/home/assets/img/sliders/revolution/thumbs/thumb1.jpg">
-                <@sliderContent gameId="${games[0].gameId}" src="${games[0].post}" title="${games[0].name}" content="${games[0].content}" data_x=150 />
-            </li>
-
-            <!-- THE SECOND SLIDE -->
-            <li data-transition="papercut" data-slotamount="15" data-masterspeed="300" data-delay="9400"
-                data-thumb="${base}/home/assets/img/sliders/revolution/thumbs/thumb2.jpg">
-                <@sliderContent gameId="${games[1].gameId}" src="${games[1].post}" title="${games[1].name}" content="${games[1].content}" data_x=175 />
-            </li>
-
-            <!-- THE THIRD SLIDE -->
-            <li data-transition="slideleft" data-slotamount="1" data-masterspeed="300"
-                data-thumb="${base}/home/assets/img/sliders/revolution/thumbs/thumb3.jpg">
-                <@sliderContent gameId="${games[2].gameId}" src="${games[2].post}" title="${games[2].name}" content="${games[2].content}" data_x=200 />
-            </li>
-
-            <!-- THE FOURTH SLIDE -->
-            <li data-transition="flyin" data-slotamount="1" data-masterspeed="300"
-                data-thumb="${base}/home/assets/img/sliders/revolution/thumbs/thumb4.jpg">
-                <@sliderContent gameId="${games[3].gameId}" src="${games[3].post}" title="${games[3].name}" content="${games[3].content}" data_x=225 />
-            </li>
+<div class="flexslider">
+    <ul class="slides">
+        <#if (games?size > 0)>
+            <#list games as game>
+                <#if (game_index > 3) ><#break ></#if>
+                <li>
+                    <a href="${base}/game/${game.gameId}">
+                        <img src="${base+game.post}"  />
+                    </a>
+                </li>
+            </#list>
         </#if>
-        </ul>
-        <div class="tp-bannertimer tp-bottom"></div>
-    </div>
+    </ul>
+
 </div>
 <!--=== End Slider ===-->
 
@@ -128,4 +102,11 @@
 <!-- End Content Part -->
 
 <#include "include/footer.ftl">
+<script>
+    $(function () {
+        $('.flexslider').flexslider({
+            animation: "slide"
+        });
+    });
+</script>
 <@endHtml/>
