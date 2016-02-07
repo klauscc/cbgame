@@ -49,7 +49,7 @@ public class HomeController {
     @RequestMapping(value = "/")
     public String home(Model model){
         List<Game> games = gameService.getGamesByTypeAndPage(0, 1);
-        model.addAttribute("title","触乐游戏");
+        model.addAttribute("title","触宝游戏");
         model.addAttribute("games",games);
         return "/user/index";
     }
@@ -63,7 +63,7 @@ public class HomeController {
     @RequestMapping(value = "/about")
     public String about(Model model){
         Article article = articleService.getArticle(Constants.getAboutArticleId());
-        model.addAttribute("title","触乐游戏|关于我们");
+        model.addAttribute("title","触宝游戏|关于我们");
         model.addAttribute("article",article);
         return "/user/article";
     }
@@ -76,7 +76,7 @@ public class HomeController {
     @RequestMapping(value = "/contactUs")
     public String contactUs(Model model){
         Article article = articleService.getArticle(Constants.getContactUsArticleId());
-        model.addAttribute("title","触乐游戏|联系我们");
+        model.addAttribute("title","触宝游戏|联系我们");
         model.addAttribute("article",article);
         return "/user/article";
     }
@@ -100,7 +100,7 @@ public class HomeController {
     public String familySafetyOfContent(@PathVariable String value, Model model){
         Article article = articleService.getArticle("/familySafety/"+value);
         model.addAttribute("article",article);
-        model.addAttribute("title", "触乐游戏|家长监护");
+        model.addAttribute("title", "触宝游戏|家长监护");
         return "/user/familySafety";
     }
 

@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md8">
-                <p align="center">Copyright &copy; 2016.上海触乐科技有限公司 All rights reserved.</p>
+                <p align="center">Copyright &copy; 2016.上海触宝信息技术有限公司 All rights reserved.</p>
             </div>
             <div class="col-md4">
                 <a href="${base}/"><img id="logo-footer" src="${base}/home/assets/img/logo2-default.png" class="pull-right" alt="" /></a>

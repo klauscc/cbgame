@@ -30,14 +30,14 @@ public class AdminHomeController {
     public String companyIntroduction(Model model){
         model.addAttribute("article",articleService.getArticle("about"));
         model.addAttribute("editUrl","/admin/edit/about");
-        model.addAttribute("title","触乐游戏管理平台|公司简介");
+        model.addAttribute("title","触宝游戏管理平台|公司简介");
         return "/admin/editArticle";
     }
     @RequestMapping(value = "/contactUs")
     public String contactUs(Model model){
         model.addAttribute("article",articleService.getArticle("contactUs"));
         model.addAttribute("editUrl","/admin/edit/contactUs");
-        model.addAttribute("title","触乐游戏管理平台|联系我们");
+        model.addAttribute("title","触宝游戏管理平台|联系我们");
         return "/admin/editArticle";
     }
     @RequestMapping(value = "/edit/{value}",method = RequestMethod.POST)

@@ -33,7 +33,7 @@ public class AdminFamilySafetyController {
         Article article = articleService.getArticle("/familySafety/"+value);
         model.addAttribute("article",article);
         model.addAttribute("currentUrl",request.getServletPath());
-        model.addAttribute("title", "触乐游戏管理平台|家长监护");
+        model.addAttribute("title", "触宝游戏管理平台|家长监护");
         return "/admin/editArticle";
     }
 

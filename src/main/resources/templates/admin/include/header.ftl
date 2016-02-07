@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>${title?default("触乐游戏|管理平台")}</title>
+    <title>${title?default("触宝游戏|管理平台")}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="${base}/foradmin/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

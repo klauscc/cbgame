@@ -65,8 +65,8 @@
                         <img class="media-object" src="${defaultHeader}" alt="" />
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading">${comment.nickName} <span style="left: 20%">评分: ${comment.rate?string("0.#")}分</span><span>发表于${comment.timeAdded?string("yyyy-MM-dd HH:mm:ss")}</span></h4>
-                        <p>${comment.content} </p>
+                        <h4 class="media-heading">${comment.nickName?html} <span style="left: 20%">评分: ${comment.rate?string("0.#")}分</span><span>发表于${comment.timeAdded?string("yyyy-MM-dd HH:mm:ss")}</span></h4>
+                        <p>${comment.content?html} </p>
                     </div>
                 </div><!--/media-->
                 <hr />

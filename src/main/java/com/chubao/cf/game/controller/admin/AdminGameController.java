@@ -165,7 +165,7 @@ public class AdminGameController {
     public String manageGame(Model model){
         ArrayList<Game> games = gameService.getGames();
         model.addAttribute("games", games);
-        model.addAttribute("title", "触乐游戏管理平台|管理游戏");
+        model.addAttribute("title", "触宝游戏管理平台|管理游戏");
         return "/admin/manageGame";
     }
 
