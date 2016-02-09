@@ -165,11 +165,14 @@ public class HomeController {
     }
 
 
-
-//    @RequestMapping(value = "/test")
-//    @ResponseBody
-//    public String test(){
-//        return userService.passwordDigest("cbadmin");
-//    }
+    /**
+     * 获取admin密码的md5，工作环境注释掉!important //todo
+     * @return
+     */
+    @RequestMapping(value = "/test")
+    @ResponseBody
+    public String test(){
+        return userService.passwordDigest("admin");
+    }
 
 }
