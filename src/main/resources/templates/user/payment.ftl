@@ -26,7 +26,7 @@
             <form role="form" id="paymentForm">
                 <div class="form-group">
                     <label>选择游戏</label>
-                <@select map=gameList selectedOption="-1" class="form-control" name="gameId"/>
+                <@select map=gameList selectedOption=initialSelectedGame class="form-control" name="gameId"/>
                 </div>
                 <div class="form-group">
                     <label>充值账户手机号</label>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label>充值金额</label>
-                <@select map={"1":"1 RMB","5":"5 RMB","10":"10 RMB","20":"20 RMB","30":"30 RMB","50":"50 RMB","100":"100 RMB","200":"200 RMB","500":"500 RMB","800":"800 RMB","1000":"1000 RMB","5000":"5000 RMB","10000":"10000 RMB"} selectedOption="1" class="form-control" name="payValue" />
+                <@select map=initialPayment selectedOption="1" class="form-control" name="payValue" />
                     <p class="help-block">获得道具:<span id="getCurrency" style="color:#FF6600"> </span></p>
                 </div>
                 <button id="confirmPayment" class="btn-u btn-u-blue">确认充值</button>
@@ -60,19 +60,23 @@
     <#if gamePaymentOptions??>
         <#assign keys=gamePaymentOptions?keys>
         <#list keys as key>
-            gamePaymentOptions[${key}] = {};
-            gamePaymentOptions[${key}].rate=${gamePaymentOptions[key].rate?c};
-            gamePaymentOptions[${key}].currency='${gamePaymentOptions[key].currency}';
+            <#assign rateMapKeys=gameRateMap[key]?keys>
+        gamePaymentOptions[${key}] = {};
+        gamePaymentOptions[${key}].rate = {};
+            <#list rateMapKeys as rateKey>
+            gamePaymentOptions[${key}]['rate'][${rateKey}] = '${gameRateMap[key][rateKey]}';
+            </#list>
+        gamePaymentOptions[${key}].currency = '${gamePaymentOptions[key].currency}';
         </#list>
     </#if>
-//    console.log(gamePaymentOptions);
+    //    console.log(gamePaymentOptions);
 
     $(function () {
-        var gameId=$('select[name="gameId"]').val();
+        var gameId = $('select[name="gameId"]').val();
         var rmb = $('select[name="payValue"]').val();
         var rate = gamePaymentOptions[gameId].rate;
         var currency = gamePaymentOptions[gameId].currency;
-        $("#getCurrency").html(rmb*rate+currency);
+        $("#getCurrency").html(rate[rmb] + currency);
 
 
         $(".btn").click(function () {
@@ -81,14 +85,27 @@
             $("#payMethodHead").html($(this).html());
         });
 
-        $('select').change(function () {
-            var gameId=$('select[name="gameId"]').val();
-            var rmb = $('select[name="payValue"]').val();
+        $('select[name="gameId"]').change(function () {
+            var gameId = $(this).val();
+            var payValue = $('select[name="payValue"]');
+            payValue.empty();
+            var rate = gamePaymentOptions[gameId].rate;
+            for(var key in rate){
+                payValue.append('<option value="'+key+'">'+key+' RMB</option>');
+            }
+            var rmb = payValue.val();
+            var currency = gamePaymentOptions[gameId].currency;
+            $("#getCurrency").html(rate[rmb] + currency);
+        });
+
+        $('select[name="payValue"]').change(function () {
+            var gameId = $('select[name="gameId"]').val();
+            var rmb = $(this).val();
             var rate = gamePaymentOptions[gameId].rate;
             var currency = gamePaymentOptions[gameId].currency;
-            $("#getCurrency").html(rmb*rate+currency);
-//            console.log($("#getCurrency"));
+            $("#getCurrency").html(rate[rmb] + currency);
         });
+
         $('#paymentForm').formValidation({
             framework: 'bootstrap',
             icon: {

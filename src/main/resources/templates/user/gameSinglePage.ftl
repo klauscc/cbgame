@@ -31,13 +31,10 @@
                             <li>游戏平台:  ${game.platform}</li>
                         </ul>
                     </div>
-                    <div class="col-md-4" style="margin: 25px 0">
-                        <a href="${game.downloadUrl}" target="_blank"><button class="btn-u btn-u-large btn-u-sea">游戏链接</button></a>
-                    </div>
                 </div>
-                <div style="clear:both;"></div>
+                <div class="clearfix"></div>
                 <div class="headline"><h4>游戏截图 </h4></div>
-                <div class="col-md-12" style="clear: both">
+                <div class="col-md-12">
                     <ul id="list" class="bxslider recent-work">
                        <#if (gameImages?size > 0) >
                             <#list gameImages as image>
@@ -51,9 +48,15 @@
                        </#if>
                     </ul>
                 </div>
+                <div class="clearfix"></div>
                 <div class="headline"><h4>描述 </h4></div>
-                <div class="col-md-12" style="clear: both;">
+                <div class="col-md-12">
                     ${game.content}
+                </div>
+                <div class="clearfix"></div>
+                <div class="headline"><h4>游戏说明文档</h4></div>
+                <div class="col-md-12">
+                    <a href="${game.downloadUrl}" target="_blank"><button class="btn-u btn-u-sea">点击下载</button></a>
                 </div>
             </div>
 

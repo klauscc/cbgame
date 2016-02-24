@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 创建者: 程峰
@@ -41,6 +42,16 @@ public class PaymentService implements IPaymentService {
             gamePaymentOptions=getGamePaymentOptions();
         }
         return gamePaymentOptions;
+    }
+
+    @Override
+    public HashMap<String, HashMap<String, String>> getGamePaymentOptionsOfRateMap() {
+        HashMap<String,PaymentOption> paymentOptionHashMap = getGamePaymentOptions();
+        HashMap<String,HashMap<String,String>> rateMap = new HashMap<>();
+        for(Map.Entry<String,PaymentOption> entry:paymentOptionHashMap.entrySet()){
+            rateMap.put(entry.getKey(),entry.getValue().rateMap());
+        }
+        return rateMap;
     }
 
     @Override

@@ -18,6 +18,8 @@ public interface IPaymentService {
      */
     HashMap<String,PaymentOption> getGamePaymentOptions();
 
+    HashMap<String,HashMap<String,String>> getGamePaymentOptionsOfRateMap();
+
     /**
      * 获取当前充值配置
      * @param gameId 游戏id

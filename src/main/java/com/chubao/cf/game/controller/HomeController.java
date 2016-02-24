@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 创建者: 程峰
@@ -97,11 +98,17 @@ public class HomeController {
             gameList.put(game.getGameId().toString(),game.getName());
         }
         HashMap<String,PaymentOption> gamePaymentOptions = paymentService.getGamePaymentOptions();
-        PaymentOption initialPaymentOption = gamePaymentOptions.get(games.get(0).getGameId().toString());
-        String initialPayment = initialPaymentOption.getRate()+ initialPaymentOption.getCurrency();
+        HashMap<String,HashMap<String,String>> gameRateMap = paymentService.getGamePaymentOptionsOfRateMap();
+        HashMap<String,String> initialRateMap = gameRateMap.get(games.get(0).getGameId().toString());
+        HashMap<String,String> initialPayment = new HashMap<>();
+        for(Map.Entry<String,String> entry:initialRateMap.entrySet()){
+            initialPayment.put(entry.getKey(),entry.getKey()+" RMB");
+        }
         model.addAttribute("gameList",gameList);
+        model.addAttribute("gameRateMap",gameRateMap);
         model.addAttribute("gamePaymentOptions",gamePaymentOptions);
         model.addAttribute("initialPayment",initialPayment);
+        model.addAttribute("initialSelectedGame",games.get(0).getGameId().toString());
         return "/user/payment";
     }
 

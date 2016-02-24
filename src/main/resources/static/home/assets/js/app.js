@@ -152,7 +152,7 @@ var App = function () {
                 maxSlides: 4,
                 slideWidth: 360,
                 slideMargin: 10
-            });            
+            });
         }
 
     };
