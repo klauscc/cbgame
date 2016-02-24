@@ -66,6 +66,11 @@
                         <a href="${base}/game">游戏
                         </a>
                     </li>
+                    <li id="payment">
+                        <a href="${base}/payment">
+                            充值
+                        </a>
+                    </li>
                     <li id="familySafety">
                         <a href="${base}/familySafety" class="dropdown-toggle" data-toggle="dropdown">家长监护
                             <b class="caret" style="padding-bottom: 0"></b>

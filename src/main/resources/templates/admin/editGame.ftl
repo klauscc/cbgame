@@ -67,6 +67,13 @@
         </div>
         <div class="col-lg-12">
             <div class="form-group">
+                <label>游戏说明文档</label>
+                <input class="form-control" name="gameDoc" type="file" >
+                <p class="help-block">不修改则不选择文件</p>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
                 <label>描述</label>
                 <textarea id="gameContent" class="form-control" name="content" rows="10" style="height: 400px;">${game.content} </textarea>
             </div>

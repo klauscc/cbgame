@@ -25,10 +25,9 @@
                             <ul class="list-unstyled list-inline" style="margin-bottom: 10px">
                                 <li><i class="icon-calendar"></i>  ${game.publishTime?string("yyyy-MM-dd HH:mm:ss")}</li>
                                 <li><i class="icon-tag"></i>  ${gameTypes[game_index].name}</li>
-                                <li><i class="icon-comments"></i> ${gameRates[game_index]?string("0.#")}分 / ${commentCounts[game_index]}人评价</li>
                             </ul>
                             <p>
-                                ${gameDescribe[game_index]}
+                                ${gameDescribe[game_index]}...
                             </p>
                             </a>
                         </div>

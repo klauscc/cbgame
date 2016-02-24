@@ -5,7 +5,7 @@
 
     <groupId>com.chubao.cf.game</groupId>
     <artifactId>game-website</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <packaging>war</packaging>
 
     <name>cbGame</name>
@@ -57,16 +57,7 @@
             <artifactId>jsoup</artifactId>
             <version>1.8.3</version>
         </dependency>
-        <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version> 2.4</version>
-        </dependency>
+
 
         <!--database-->
         <dependency>

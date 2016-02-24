@@ -40,6 +40,7 @@ public class AdminHomeController {
         model.addAttribute("title","触宝游戏管理平台|联系我们");
         return "/admin/editArticle";
     }
+
     @RequestMapping(value = "/edit/{value}",method = RequestMethod.POST)
     public String processEdit(@PathVariable String value,Article article,Model model,RedirectAttributes redirectAttributes){
         articleService.editContent(article);

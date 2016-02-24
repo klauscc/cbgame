@@ -204,12 +204,12 @@
                                 },
                                 stringLength: {
                                     min: 11,
-                                    max: 11,
+                                    max: 15,
                                     message: '手机号长度不符'
                                 },
                                 regexp: {
-                                    regexp: /^[0-9\-]+$/,
-                                    message: '身份证号格式不符'
+                                    regexp: /^[0-9\-\+]+$/,
+                                    message: '手机号格式不符'
                                 },
                                 remote: {
                                     message: '手机号已注册',

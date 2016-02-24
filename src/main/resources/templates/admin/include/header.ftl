@@ -91,6 +91,9 @@
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
+                        <a href="${base}/admin/payment"><i class="fa fa-group fa-fw"></i> 充值</a>
+                    </li>
+                    <li>
                         <a href="${base}/admin/about"><i class="fa fa-group fa-fw"></i> 公司简介</a>
                     </li>
                     <li>

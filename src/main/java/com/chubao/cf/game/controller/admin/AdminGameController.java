@@ -75,8 +75,9 @@ public class AdminGameController {
      * @return 模板名称
      */
     @RequestMapping(value = "/add",method = RequestMethod.POST)
-    public String addGame(@RequestPart("gamePost") MultipartFile post, Game game,String[] imageUrl,Model model,RedirectAttributes redirectAttributes,HttpServletRequest request){
+    public String addGame(@RequestPart("gamePost") MultipartFile post, @RequestPart("gameDoc") MultipartFile gameDoc,Game game,String[] imageUrl,Model model,RedirectAttributes redirectAttributes,HttpServletRequest request){
         game.setPost(uploadService.saveImage(post, Constants.getImagesUploadSecondDir(),request));
+        game.setDownloadUrl(uploadService.saveImage(gameDoc,Constants.getFileUploadSecondDir(),request));
         game.setImages(game.assembleImages(imageUrl));
         gameService.addGame(game);
         redirectAttributes.addFlashAttribute("addSuccess", "添加成功");
@@ -142,12 +143,18 @@ public class AdminGameController {
      * @return 模板名称
      */
     @RequestMapping(value = "/edit/{gameId}",method = RequestMethod.POST)
-    public String editGame(@RequestPart("gamePost") MultipartFile post, Game game,String[] imageUrl,Model model,RedirectAttributes redirectAttributes,HttpServletRequest request){
+    public String editGame(@RequestPart("gamePost") MultipartFile post, @RequestPart("gameDoc") MultipartFile gameDoc,Game game,String[] imageUrl,Model model,RedirectAttributes redirectAttributes,HttpServletRequest request){
         Game oldGame = gameService.getGameById(game.getGameId());
         if(!post.isEmpty()){
             game.setPost(uploadService.saveImage(post, Constants.getImagesUploadSecondDir(),request));
         } else {
             game.setPost(oldGame.getPost());
+        }
+
+        if(!gameDoc.isEmpty()){
+            game.setDownloadUrl(uploadService.saveImage(gameDoc,Constants.getFileUploadSecondDir(),request));
+        } else {
+            game.setDownloadUrl(oldGame.getDownloadUrl());
         }
         game.setImages(game.assembleImages(imageUrl));
         gameService.editGame(game);

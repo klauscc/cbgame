@@ -4,11 +4,11 @@ import com.chubao.cf.game.config.Constants;
 import com.chubao.cf.game.controller.util.SecurityCode;
 import com.chubao.cf.game.domain.Article;
 import com.chubao.cf.game.domain.Game;
+import com.chubao.cf.game.domain.PaymentOption;
 import com.chubao.cf.game.domain.User;
-import com.chubao.cf.game.service.IArticleContentService;
-import com.chubao.cf.game.service.ICommentService;
-import com.chubao.cf.game.service.IGameService;
-import com.chubao.cf.game.service.UserService;
+import com.chubao.cf.game.service.*;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -40,7 +42,8 @@ public class HomeController {
     private HttpSession session;
     @Autowired
     private SecurityCode securityCode;
-
+    @Autowired
+    private IPaymentService paymentService;
     /**
      * 主页
      * @param model 数据模型
@@ -79,6 +82,27 @@ public class HomeController {
         model.addAttribute("title","触宝游戏|联系我们");
         model.addAttribute("article",article);
         return "/user/article";
+    }
+
+    /**
+     * 充值页面
+     * @param model 数据模型
+     * @return 模板
+     */
+    @RequestMapping(value = "/payment",method = RequestMethod.GET)
+    public String payment(Model model){
+        ArrayList<Game> games = gameService.getGames();
+        HashMap<String,String> gameList = new HashMap<>();
+        for(Game game:games){
+            gameList.put(game.getGameId().toString(),game.getName());
+        }
+        HashMap<String,PaymentOption> gamePaymentOptions = paymentService.getGamePaymentOptions();
+        PaymentOption initialPaymentOption = gamePaymentOptions.get(games.get(0).getGameId().toString());
+        String initialPayment = initialPaymentOption.getRate()+ initialPaymentOption.getCurrency();
+        model.addAttribute("gameList",gameList);
+        model.addAttribute("gamePaymentOptions",gamePaymentOptions);
+        model.addAttribute("initialPayment",initialPayment);
+        return "/user/payment";
     }
 
     /**
@@ -169,10 +193,10 @@ public class HomeController {
      * 获取admin密码的md5，工作环境注释掉!important //todo
      * @return
      */
-    @RequestMapping(value = "/test")
-    @ResponseBody
-    public String test(){
-        return userService.passwordDigest("admin");
-    }
+//    @RequestMapping(value = "/test")
+//    @ResponseBody
+//    public String test(){
+//        return userService.passwordDigest("admin");
+//    }
 
 }

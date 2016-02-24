@@ -33,15 +33,15 @@ public class Game {
     /**
      * 游戏名称
      */
-    private String name;
+    private String name="";
     /**
      * 游戏内容
      */
-    private String content;
+    private String content="";
     /**
      * 资费
      */
-    private String price;
+    private String price="";
     /**
      * 发布时间
      */
@@ -55,7 +55,7 @@ public class Game {
     /**
      * 平台
      */
-    private String platform;
+    private String platform="";
     /**
      * 下载次数
      */
@@ -67,15 +67,15 @@ public class Game {
     /**
      * 下载链接
      */
-    private String downloadUrl;
+    private String downloadUrl="";
     /**
      * 图片链接，多张以"|"分隔
      */
-    private String images;
+    private String images="";
     /**
      * 海报链接
      */
-    private String post;
+    private String post="";
     /**
      * 置顶
      */

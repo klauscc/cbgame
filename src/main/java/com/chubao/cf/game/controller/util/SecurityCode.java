@@ -78,7 +78,7 @@ public class SecurityCode {
         setResponseHeaders(response);
         String token = EncoderHelper.getChallangeAndWriteImage(cs, "png", response.getOutputStream());
         session.setAttribute("captchaToken", token);
-        logger.info("当前的SessionID={},验证码={}",session.getId(),token);
+//        logger.info("当前的SessionID={},验证码={}",session.getId(),token);
     }
     protected void setResponseHeaders(HttpServletResponse response) {
         response.setContentType("image/png");

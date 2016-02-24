@@ -62,6 +62,10 @@ public class Constants {
      */
     public static Integer familySafetyContactUsArticleId = 6;
 
+    /**
+     * 游戏充值属性 内容文章id
+     */
+    public static Integer gamePaymentArticleId = 7;
 
     public static String uploadDir = "/upload";
 
@@ -147,6 +151,14 @@ public class Constants {
 
     public static void setFamilySafetyContactUsArticleId(Integer familySafetyContactUsArticleId) {
         Constants.familySafetyContactUsArticleId = familySafetyContactUsArticleId;
+    }
+
+    public static Integer getGamePaymentArticleId() {
+        return gamePaymentArticleId;
+    }
+
+    public static void setGamePaymentArticleId(Integer gamePaymentArticleId) {
+        Constants.gamePaymentArticleId = gamePaymentArticleId;
     }
 
     public static String getUploadDir() {
