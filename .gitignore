@@ -1,8 +1,8 @@
 ### Java template
 *.class
-.DS_Store
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+.DS_Store
 
 # Package Files #
 *mvn*
@@ -11,7 +11,7 @@
 target
 *.war
 *.ear
-
+log
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
