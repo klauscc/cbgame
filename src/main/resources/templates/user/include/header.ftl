@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="${base}/home/assets/css/headers/header2.css" />
     <link rel="stylesheet" href="${base}/home/assets/plugins/bootstrap/css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" href="${base}/home/assets/css/style_responsive.css" />
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="${base}/favicon.ico" />
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="${base}/home/assets/plugins/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="${base}/home/assets/plugins/flexslider/flexslider.css" type="text/css" media="screen" />
@@ -37,8 +37,8 @@
 <div class="header">
     <div class="container">
         <!-- Logo -->
-        <div class="logo" style="padding-bottom: 0;padding-top: 5px">
-            <a href="${base}/"><img id="logo-header" src="${base}/home/assets/img/logo2-default.png" alt="Logo" /></a>
+        <div class="logo" style="padding:10px;">
+            <a href="${base}/"><img id="logo-header" src="${base}/home/assets/img/logo.png" style="height: 40px" alt="Logo" /></a>
         </div><!-- /logo -->
 
         <!-- Menu -->

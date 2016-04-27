@@ -5,7 +5,7 @@
 
     <groupId>com.chubao.cf.game</groupId>
     <artifactId>game-website</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
     <packaging>war</packaging>
 
     <name>cbGame</name>
