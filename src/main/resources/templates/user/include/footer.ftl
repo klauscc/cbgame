@@ -19,7 +19,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md8">
-                <p align="center">上海触宝信息技术有限公司 版权所有 &copy;2016 <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备12012934号-2</a></p>
+                <p align="center">上海触宝信息技术有限公司 版权所有 &copy;2016 <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备12012934号-2</a>
+                <a href="${base}/license">沪网文[2016]0089-089</a></p>
             </div>
             <div class="col-md4">
                 <a href="${base}/"><img id="logo-footer" src="${base}/home/assets/img/logo.png" style="height: 40px;" class="pull-right" alt="" /></a>

@@ -86,6 +86,21 @@ public class HomeController {
     }
 
     /**
+     * 关于我们
+     * @param model 数据模型
+     * @return 模板
+     */
+    @RequestMapping(value = "/license")
+    public String license(Model model){
+        HashMap<String,String> article = new HashMap<>();
+        article.put("content","<img class=\"img-responsive\" style=\"width:80%;\" src=\"home/assets/img/license.jpg\" />");
+        article.put("title","经营许可");
+        model.addAttribute("title","触宝游戏|经营许可");
+        model.addAttribute("article",article);
+        return "/user/article";
+    }
+
+    /**
      * 充值页面
      * @param model 数据模型
      * @return 模板
